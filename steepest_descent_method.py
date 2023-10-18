@@ -18,7 +18,7 @@ def steepest_descent_method(start_x, C, stop, H):
         add_row([f'{i:<4d}', f'{X[0]:<10.3f}', f'{X[1]:<10.3f}', f'{fX:<10.3f}'])
         if np.linalg.norm(dfX) < stop:
             break
-        t = - (dfX @ K) / (K @ H @ K)
+        t = - (np.transpose(dfX) @ K) / (np.transpose(K) @ H @ K)
         X = X + t * K
         dfX = calculate_dfX(X, C)
         i += 1
