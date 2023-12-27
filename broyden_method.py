@@ -10,7 +10,7 @@ def broyden_method(start_x, C, stop, H):
     dfX = calculate_dfX(X, C)
     i = 1
     x, y = [X[0]], [X[1]]
-    n = np.eye(2)
+    n = np.eye(2) # Мб тут n = np.linalg.inv(H), иначе не верно. Но я не тестил, смотрите сами
     K = dfX
     t = - dfX.dot(K) / ((K.dot(H)).dot(K))
     add_row([f'{i:<4d}', f'{X[0]:<10.3f}', f'{X[1]:<10.3f}', f'{fX:<10.3f}'])
